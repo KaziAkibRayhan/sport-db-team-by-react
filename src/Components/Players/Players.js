@@ -1,9 +1,12 @@
 import React from "react";
+import Player from "../Player/Player";
 import "./Players.css";
-const Players = () => {
+const Players = ({ players }) => {
   return (
-    <div>
-      <h2>Players Compo</h2>
+    <div className="cart-container">
+      {players.map((player) => (
+        <Player player={player} key={player.idPlayer}></Player>
+      ))}
     </div>
   );
 };

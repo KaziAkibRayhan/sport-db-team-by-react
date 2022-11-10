@@ -1,0 +1,10 @@
+.card {
+  width: 250px;
+  height: 450px;
+  box-shadow: 2px 2px 4px gray;
+  margin: 3px;
+  border-radius: 3px;
+}
+.player-img {
+  width: 250px;
+}
