@@ -1,8 +1,8 @@
 import React from "react";
 import "./Player.css";
 const Player = ({ player }) => {
-  const { strPlayer, strNationality, idPlayer, strCutout, strDescriptionEN } =
-    player;
+  // strNationality, idPlayer,
+  const { strPlayer, strCutout, strDescriptionEN } = player;
 
   return (
     <div className="card">
