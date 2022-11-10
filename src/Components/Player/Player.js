@@ -19,6 +19,39 @@ const Player = ({ player, cart, setCart }) => {
     }
   };
 
+  const handleBookMark = () => {
+    const info = {
+      strPlayer,
+      idPlayer,
+      strCutout,
+      strDescriptionEN,
+      quantity: 1,
+      bookmark: true,
+    };
+    const prevBookmark = localStorage.getItem("bookmark");
+    const oldBookmark = JSON.parse(prevBookmark);
+    if (oldBookmark) {
+      const isExist = oldBookmark.find((p) => p.idPlayer === idPlayer);
+      if (isExist) {
+        const updatedPrice = parseFloat(isExist.quantity);
+        const newUpdatedPrice = updatedPrice + 1;
+        isExist.quantity = newUpdatedPrice;
+
+        localStorage.setItem("bookmark", JSON.stringify(oldBookmark));
+        return;
+      } else {
+        localStorage.setItem(
+          "bookmark",
+          JSON.stringify([...oldBookmark, info])
+        );
+      }
+      localStorage.setItem("bookmark", JSON.stringify([...oldBookmark, info]));
+    } else {
+      localStorage.setItem("bookmark", JSON.stringify([info]));
+      console.log("nai");
+    }
+  };
+
   return (
     <div className="card" data-aos="zoom-in">
       <img className="player-img" src={strCutout} alt="" />
@@ -32,7 +65,9 @@ const Player = ({ player, cart, setCart }) => {
       <button onClick={handleAddToCart} className="card-btn">
         Add to Cart
       </button>
-      <button className="card-btn">Bookmark</button>
+      <button onClick={handleBookMark} className="card-btn">
+        Bookmark
+      </button>
     </div>
   );
 };
