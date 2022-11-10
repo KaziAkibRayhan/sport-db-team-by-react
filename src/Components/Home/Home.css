@@ -25,3 +25,16 @@
   padding: 5px;
   margin-right: 10px;
 }
+.cart-info-container {
+  display: flex;
+  justify-content: center;
+}
+.delete-btn {
+  padding: 4px 7px;
+  margin-left: 5px;
+  border: 0;
+  border-radius: 2px;
+  background-color: rgb(255, 91, 91);
+  color: white;
+  font-weight: bold;
+}
